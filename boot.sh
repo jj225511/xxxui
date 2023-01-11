@@ -3,7 +3,7 @@ checkng() {
     ng=`curl -sIL -w '%{http_code}' https://${REPL_SLUG}.${REPL_OWNER}.repl.co -o /dev/null`;
     xui=`ps -ef | grep x-ui | grep -v grep`;
     ngx="nginx"；
-    if [[ $ng == 404 ]] || [[ $ng == 400 ]] || [[ $xui == "" ]]
+    if [[ $ng == 404 ]] || [[ $ng == 400 ]] || [[ $ng == 500 ]] || [[ $xui == "" ]]
     then
     startng
     else
@@ -15,7 +15,7 @@ checkng2() {
     ng=`curl -sIL -w '%{http_code}' https://${REPL_SLUG}.${REPL_OWNER}.repl.co -o /dev/null`;
     xui=`ps -ef | grep x-ui | grep -v grep`;
     ngx="nginx"；
-    if [[ $ng == 404 ]] || [[ $ng == 400 ]] || [[ $xui == "" ]]
+    if [[ $ng == 404 ]] || [[ $ng == 400 ]] || [[ $ng == 500 ]] || [[ $xui == "" ]]
     then
     startng
     else
